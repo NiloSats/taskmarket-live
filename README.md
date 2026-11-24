@@ -29,8 +29,10 @@ The exact rule for every derived number is in `build.mjs`, next to the code that
   static site to `dist/` with one small `data.json` (about 30 KB). The browser never calls the API, because the API does
   not accept browser requests from other sites.
 - `og.py` (Pillow) draws a share card for the page and for each view, using the brand fonts.
-- `.github/workflows/deploy.yml` rebuilds and republishes to GitHub Pages **every hour** (and on every push). GitHub
-  Pages caches responses for 10 minutes, and the page shows the "data as of" time of the build.
+- `ci/github-pages.yml` is a GitHub Actions workflow that rebuilds and republishes to GitHub Pages **every hour**;
+  `deploy.sh` copies it to `.github/workflows/` for you. The instance linked from this repo is rebuilt hourly by the
+  same `node build.mjs && python og.py` and pushed to the `gh-pages` branch. GitHub Pages caches responses for 10 minutes,
+  and the page shows the "data as of" time of the build.
 - Read-only: no wallet connection, no analytics, no cookies, no names attached to addresses.
 
 ## Deploy (one command)
