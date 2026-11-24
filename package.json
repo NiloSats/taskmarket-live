@@ -1,0 +1,13 @@
+{
+  "name": "taskmarket-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live, read-only dashboard of Taskmarket's public market data (Tempo and Base).",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs && python3 og.py",
+    "preview": "node build.mjs && python3 og.py && python3 -m http.server 8080 --directory dist",
+    "deploy": "sh deploy.sh"
+  }
+}
